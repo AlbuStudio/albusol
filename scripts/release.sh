@@ -19,4 +19,9 @@ JSON
 ssh -i "$KEY" "$HOST" "mkdir -p /var/www/albustudio/downloads/albusol"
 rsync -az -e "ssh -i $KEY" "$OUT/$ZIP" "$OUT/latest.json" "$HOST:/var/www/albustudio/downloads/albusol/"
 ssh -i "$KEY" "$HOST" "chown -R www-data:www-data /var/www/albustudio/downloads/albusol"
+echo "$SHA  $ZIP" > "$OUT/SHA256SUMS"
+if ! gh release view "v$VERSION" >/dev/null 2>&1; then
+  gh release create "v$VERSION" "$OUT/$ZIP" "$OUT/SHA256SUMS" --title "AlbuSOL $VERSION" --notes "Download at https://albustudio.com/albusol. Verify: \`shasum -a 256 $ZIP\` must print \`$SHA\`." >/dev/null
+  echo "GitHub release v$VERSION created"
+fi
 echo "Published $ZIP ($SIZE bytes, sha256 $SHA)"

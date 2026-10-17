@@ -1,7 +1,20 @@
 # AlbuSOL
 
+[![Release](https://img.shields.io/github/v/release/AlbuStudio/albusol?label=release&color=7c3aed)](https://github.com/AlbuStudio/albusol/releases/latest)
+[![MIT licence](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE)
+[![Node 20+](https://img.shields.io/badge/node-%E2%89%A520-339933?logo=node.js&logoColor=white)](https://nodejs.org)
+[![Verified on devnet](https://img.shields.io/badge/verified-devnet-14b8a6)](#verified-on-devnet-2026-10-10)
+[![Runs locally](https://img.shields.io/badge/keys-never%20leave%20your%20machine-f59e0b)](#why-not-a-web-launcher)
+
 A local, interactive Solana launch desk. One terminal menu for the whole
-token lifecycle, signed with a private key that never leaves your computer:
+token lifecycle, signed with a private key that never leaves your computer.
+
+![AlbuSOL creating a token on devnet](docs/launch.gif)
+
+```bash
+# download the zip from https://albustudio.com/albusol, then
+unzip albusol-1.0.0.zip && cd albusol-1.0.0 && npm install && npm start
+```
 
 Download: **https://albustudio.com/albusol** · Source: **https://github.com/AlbuStudio/albusol**
 
@@ -17,6 +30,25 @@ Download: **https://albustudio.com/albusol** · Source: **https://github.com/Alb
 | **Wallet** | Import (base58 / JSON / keypair file), create, switch, export, delete; devnet airdrop |
 | **Settings** | mainnet / devnet, custom RPC, priority fee, Pinata JWT for IPFS hosting |
 
+## Why not a web launcher?
+
+Every browser launchpad asks you to connect a wallet to *their* site and sign
+transactions *they* build. If their frontend, their CDN or one of their
+dependencies is compromised, the transaction you approve is not the one on the
+screen. AlbuSOL is the opposite shape:
+
+- **Your key stays on your machine**, encrypted at rest, decrypted into memory
+  only after you type the password, and used only to sign transactions that
+  this code built. There is no server side.
+- **Every transaction is built from source you can read** (`src/`, about 1,500
+  lines of plain JavaScript, MIT). The only network calls are to the RPC you
+  chose and, if you opt in, to Pinata for metadata hosting.
+- **Nothing is hidden in the fee.** The service fee is a separate SOL
+  transfer, printed on every confirmation screen before you say yes, sent only
+  after the action succeeds, and lives in one 40-line file (`src/fee.js`).
+- **Rehearse on devnet first**, with a built-in airdrop, then flip the network
+  in Settings and run the same steps on mainnet.
+
 > **Use your own RPC.** The public `api.mainnet-beta.solana.com` /
 > `api.devnet.solana.com` endpoints throttle after a few dozen requests and a
 > pool creation makes about forty. Put a free Helius, QuickNode or Triton URL
@@ -31,6 +63,12 @@ npm start            # or: node bin/albusol.js
 ```
 
 Node 20+ required (macOS, Linux or Windows). Optional: `npm link` to get an `albusol` command.
+
+Every release zip is published with its SHA-256 in `latest.json` next to the download and on the [GitHub release](https://github.com/AlbuStudio/albusol/releases). Check it before you run anything that signs with your key:
+
+```bash
+shasum -a 256 albusol-1.0.0.zip
+```
 
 ## Wallet security
 
@@ -118,6 +156,14 @@ types) → 50 % LP burn → Core collection
   you — can ever withdraw that liquidity.
 - Public RPCs block `getParsedTokenAccountsByOwner` on some providers; if the
   burn screen shows nothing, switch RPC in Settings.
+
+## Used by
+
+Launched something with AlbuSOL? Open a pull request adding one line here (name, link, transaction).
+
+## Security
+
+See [SECURITY.md](SECURITY.md) for the threat model and how to report a vulnerability.
 
 MIT · Albu Studio
 

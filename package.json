@@ -31,5 +31,34 @@
   "overrides": {
     "stream-json": "^3.6.0",
     "uuid@<11.1.1": "^11.1.1"
+  },
+  "files": [
+    "bin",
+    "src",
+    "README.md",
+    "SECURITY.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlbuStudio/albusol.git"
+  },
+  "homepage": "https://albustudio.com/albusol",
+  "bugs": {
+    "url": "https://github.com/AlbuStudio/albusol/issues"
+  },
+  "keywords": [
+    "solana",
+    "spl-token",
+    "raydium",
+    "openbook",
+    "metaplex",
+    "nft",
+    "liquidity",
+    "token-launch",
+    "cli"
+  ],
+  "publishConfig": {
+    "access": "public"
   }
 }

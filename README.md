@@ -1,5 +1,6 @@
 # AlbuSOL
 
+[![npm](https://img.shields.io/npm/v/albusol?color=cb3837&logo=npm)](https://www.npmjs.com/package/albusol)
 [![Release](https://img.shields.io/github/v/release/AlbuStudio/albusol?label=release&color=7c3aed)](https://github.com/AlbuStudio/albusol/releases/latest)
 [![MIT licence](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE)
 [![Node 20+](https://img.shields.io/badge/node-%E2%89%A520-339933?logo=node.js&logoColor=white)](https://nodejs.org)
@@ -12,8 +13,7 @@ token lifecycle, signed with a private key that never leaves your computer.
 ![AlbuSOL creating a token on devnet](docs/launch.gif)
 
 ```bash
-# download the zip from https://albustudio.com/albusol, then
-unzip albusol-<version>.zip && cd albusol-<version> && npm install && npm start
+npx albusol
 ```
 
 Download: **https://albustudio.com/albusol** · Source: **https://github.com/AlbuStudio/albusol**
@@ -57,12 +57,25 @@ screen. AlbuSOL is the opposite shape:
 ## Install
 
 ```bash
+npx albusol          # runs the latest release, nothing to install
+```
+
+or install it once:
+
+```bash
+npm install -g albusol
+albusol
+```
+
+or from the zip on https://albustudio.com/albusol:
+
+```bash
 unzip albusol-<version>.zip && cd albusol-<version>
 npm install
 npm start            # or: node bin/albusol.js
 ```
 
-Node 20+ required (macOS, Linux or Windows). Optional: `npm link` to get an `albusol` command.
+Node 20+ required (macOS, Linux or Windows).
 
 Every release zip is published with its SHA-256 in `latest.json` next to the download and on the [GitHub release](https://github.com/AlbuStudio/albusol/releases). Check it before you run anything that signs with your key:
 

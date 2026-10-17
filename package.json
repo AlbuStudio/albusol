@@ -1,0 +1,31 @@
+{
+  "name": "albusol",
+  "version": "1.0.0",
+  "description": "AlbuSOL — local Solana launch desk: wallet, token, OpenBook market, Raydium liquidity, LP burn, Metaplex Core NFTs",
+  "type": "module",
+  "bin": {
+    "albusol": "./bin/albusol.js"
+  },
+  "scripts": {
+    "start": "node bin/albusol.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "author": "Albu Studio",
+  "dependencies": {
+    "@inquirer/prompts": "^8.7.3",
+    "@metaplex-foundation/mpl-core": "^1.10.0",
+    "@metaplex-foundation/mpl-token-metadata": "^3.4.0",
+    "@metaplex-foundation/umi": "^1.6.0",
+    "@metaplex-foundation/umi-bundle-defaults": "^1.6.0",
+    "@metaplex-foundation/umi-web3js-adapters": "^1.6.0",
+    "@raydium-io/raydium-sdk-v2": "^0.2.74-alpha",
+    "@solana/spl-token": "^0.4.15",
+    "@solana/web3.js": "^1.99.0",
+    "bn.js": "^5.2.5",
+    "bs58": "^6.0.0",
+    "decimal.js": "^10.6.0"
+  }
+}

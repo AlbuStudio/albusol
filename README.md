@@ -13,7 +13,7 @@ token lifecycle, signed with a private key that never leaves your computer.
 
 ```bash
 # download the zip from https://albustudio.com/albusol, then
-unzip albusol-1.0.0.zip && cd albusol-1.0.0 && npm install && npm start
+unzip albusol-<version>.zip && cd albusol-<version> && npm install && npm start
 ```
 
 Download: **https://albustudio.com/albusol** · Source: **https://github.com/AlbuStudio/albusol**
@@ -57,7 +57,7 @@ screen. AlbuSOL is the opposite shape:
 ## Install
 
 ```bash
-unzip albusol-1.0.0.zip && cd albusol-1.0.0
+unzip albusol-<version>.zip && cd albusol-<version>
 npm install
 npm start            # or: node bin/albusol.js
 ```
@@ -67,7 +67,7 @@ Node 20+ required (macOS, Linux or Windows). Optional: `npm link` to get an `alb
 Every release zip is published with its SHA-256 in `latest.json` next to the download and on the [GitHub release](https://github.com/AlbuStudio/albusol/releases). Check it before you run anything that signs with your key:
 
 ```bash
-shasum -a 256 albusol-1.0.0.zip
+shasum -a 256 albusol-<version>.zip
 ```
 
 ## Wallet security

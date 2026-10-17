@@ -25,6 +25,7 @@ and does not protect against.
 - A compromised computer. If your machine runs a keylogger or a malicious
   terminal, no local tool can help; use a dedicated launch wallet with only the
   SOL you need.
+- Known advisory without a fix: `bigint-buffer` (GHSA-3gc7-fjrx-p6mg), pulled in by `@solana/spl-token`. The vulnerable code path is the pure-JS fallback of `toBigIntLE()` on attacker-controlled buffers; AlbuSOL only passes it account data returned by your own RPC. It is listed here so you can make your own call; it will be dropped the moment the Solana SDKs move off it. `stream-json` and `uuid` are pinned to patched versions through `overrides` in `package.json`.
 - A compromised dependency. `npm install` pulls the Solana, Raydium and
   Metaplex SDKs. The lockfile pins exact versions; review `npm audit` and the
   lockfile diff before upgrading.

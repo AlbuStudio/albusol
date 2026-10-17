@@ -10,7 +10,7 @@ cd "$(dirname "$0")/.."
 VERSION=$(node -p 'require("./package.json").version')
 OUT=$(mktemp -d)
 ZIP="albusol-$VERSION.zip"
-git archive --format=zip --prefix="albusol-$VERSION/" -o "$OUT/$ZIP" HEAD -- . ':!TODO.md' ':!scripts'
+git archive --format=zip --prefix="albusol-$VERSION/" -o "$OUT/$ZIP" HEAD -- . ':!TODO.md' ':!scripts' ':!docs'
 SIZE=$(stat -f%z "$OUT/$ZIP" 2>/dev/null || stat -c%s "$OUT/$ZIP")
 SHA=$(shasum -a 256 "$OUT/$ZIP" | cut -d' ' -f1)
 cat > "$OUT/latest.json" <<JSON

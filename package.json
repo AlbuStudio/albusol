@@ -1,10 +1,10 @@
 {
   "name": "albusol",
   "version": "1.0.1",
-  "description": "AlbuSOL \u2014 local Solana launch desk: wallet, token, OpenBook market, Raydium liquidity, LP burn, Metaplex Core NFTs",
+  "description": "AlbuSOL — local Solana launch desk: wallet, token, OpenBook market, Raydium liquidity, LP burn, Metaplex Core NFTs",
   "type": "module",
   "bin": {
-    "albusol": "./bin/albusol.js"
+    "albusol": "bin/albusol.js"
   },
   "scripts": {
     "start": "node bin/albusol.js"
